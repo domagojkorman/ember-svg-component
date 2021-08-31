@@ -42,21 +42,9 @@ module.exports = {
       destDir: `${this.app.name}/`
     })
 
-    // // precompile any htmlbars template string via the precompile method on the
-    // // ember-cli-htmlbars plugin wrapper; `precompiled` will be a string of the
-    // // form:
-    // //
-    // //   Ember.HTMLBars.template(function() {...})
-    // //
-    // var precompiled = htmlbarsPlugin.precompile("{{my-component}}");
-    // console.log(tree._inputNodes[0].inputNodes[1]._inputNodes[0]._inputNodes[0])
-    // console.log(svgFunnel)
-    // console.log(Object.keys(htmlbarsAddon))
-    // console.log(htmlbarsAddon.registry.pluginTypes.template.precompile)
     const hbsTree = htmlbarsAddon.transpileTree(svgFunnel, {
       ...htmlbarsAddon.htmlbarsOptions()
     })
-    console.log(hbsTree)
     return merge([tree, hbsTree])
   }
 }
